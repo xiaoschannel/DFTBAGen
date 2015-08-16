@@ -1,0 +1,8 @@
+﻿<Application x:Class="cn.zuoanqh.open.DFTBAGen.main.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="SimpleGeneratorWindow.xaml">
+    <Application.Resources>
+         
+    </Application.Resources>
+</Application>

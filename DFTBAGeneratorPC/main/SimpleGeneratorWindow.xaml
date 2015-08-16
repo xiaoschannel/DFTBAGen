@@ -1,0 +1,29 @@
+﻿<Window x:Class="cn.zuoanqh.open.DFTBAGen.main.SimpleGeneratorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="SimpleGeneratorWindow" Height="299.2" Width="563.2" FontFamily="Arial Narrow" FontSize="20">
+    <Grid>
+        <Label Content="Click one of these buttons!" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20" Margin="10,10,0,0"/>
+        <TextBox HorizontalAlignment="Left" Height="89" Margin="10,49,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="338" FontSize="24"/>
+        <Button HorizontalAlignment="Left" Height="57" Margin="356,10,0,0" VerticalAlignment="Top" Width="183">
+            <TextBlock TextWrapping="Wrap" Text="Generate One &amp; Copy" HorizontalAlignment="Center" TextAlignment="Center"/>
+        </Button>
+        <Button HorizontalAlignment="Left" Height="57" Margin="356,81,0,0" VerticalAlignment="Top" Width="183">
+            <TextBlock TextWrapping="Wrap" Text="Generate Many &amp; Copy" HorizontalAlignment="Center" TextAlignment="Center"/>
+        </Button>
+        <Expander Header="More"  Margin="10,143,17.8,9.6"  IsExpanded="True" Width="529" >
+            <Grid Height="100" Margin="0,0,0,0">
+                <Button HorizontalAlignment="Left" Width="83" Margin="161,2,0,66" Content="Clipboard" />
+                <Label Content="Change template:" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.056,0.202"/>
+                <Button HorizontalAlignment="Left" Width="83" Margin="249,2,0,66" Content="Default" />
+                <Button HorizontalAlignment="Left" Width="104" Margin="337,2,0,66" Content="Open Editor" />
+                <RadioButton Content="Generate this many:" HorizontalAlignment="Left" Margin="10,39,0,0" VerticalAlignment="Top" IsChecked="True"/>
+                <RadioButton Content="Generate All Possible Combinations (this is SO gonna take a while)" HorizontalAlignment="Left" Margin="10,66,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.199,0.482"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="183,39,0,0" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="333"/>
+
+
+            </Grid>
+        </Expander>
+
+    </Grid>
+</Window>
