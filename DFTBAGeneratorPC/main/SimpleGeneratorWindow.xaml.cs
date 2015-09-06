@@ -11,8 +11,10 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.IO;
 using cn.zuoanqh.open.zut.FileIO.Text;
 using cn.zuoanqh.open.zut;
+using cn.zuoanqh.open.DFTBAGen.main.data;
 
 namespace cn.zuoanqh.open.DFTBAGen.main
 {
@@ -21,61 +23,68 @@ namespace cn.zuoanqh.open.DFTBAGen.main
 	/// </summary>
 	public partial class SimpleGeneratorWindow : Window
 	{
-		Dictionary<string, List<string>> posLists;
-		List<string> verbB, nounA;
-		Random r = new Random();
+		GeneratorTemplate currentTemplate
+		{
+			get { return _currentTemplate; }
+			set
+			{
+				_currentTemplate = value;
+				lblCurrentTemplateName.Content = value.TemplateName;
+				rbtAll.Content = String.Format("Generate ALL combinations: {0} Possible", value.TotalItems);
+			}
+		} GeneratorTemplate _currentTemplate;
+
 		public SimpleGeneratorWindow()
 		{
 			InitializeComponent();
-			posLists = new Dictionary<string, List<string>>();
-			posLists.Add("noun", new List<string>());
-			posLists.Add("verb", new List<string>());
-			posLists.Add("adjective", new List<string>());
-			posLists.Add("adverb", new List<string>());
+			currentTemplate = new GeneratorTemplate(System.IO.Path.Combine(Directory.GetCurrentDirectory(), "Templates", "test1.txt"));
 
-			foreach (var s in posLists.Keys)
-			{
-				posLists[s].AddRange(ByLineFileIO.readFileNoWhitespace("words\\"+s + ".txt"));
-			}
-			posLists["verb"] = posLists["verb"].FindAll((s) => (!s.EndsWith("ed") && !s.EndsWith("ing")));
-
-			verbB = posLists["verb"].FindAll((s) => s.StartsWith("b"));
-			nounA = posLists["noun"].FindAll((s) => s.StartsWith("a"));
 		}
 
 		private void Expander_Collapsed(object sender, RoutedEventArgs e)
 		{
-			this.Height = 210;
+			this.Height = 250;
 		}
 
 		private void Expander_Expanded(object sender, RoutedEventArgs e)
 		{
-			this.Height = 299;
+			this.Height = 250 + 89;
 		}
 
 		private void btnOne_Click(object sender, RoutedEventArgs e)
 		{
 			txtOutput.Clear();
 
-			string verb = verbB[r.Next(verbB.Count)];
-			string noun = nounA[r.Next(nounA.Count)];
-			txtOutput.Text += "Don't forget to " + verb + " " + noun;
+			txtOutput.Text = currentTemplate.GetRandom();
 
 			Clipboard.SetText(txtOutput.Text);
 		}
 
 		private void btnMany_Click(object sender, RoutedEventArgs e)
 		{
-			txtOutput.Clear();
+			StringBuilder sb = new StringBuilder();
 
-			for (long i = 0; i < Convert.ToInt64(txtNumbers.Text); i++)
-			{
-				string verb = verbB[r.Next(verbB.Count)];
-				string noun = nounA[r.Next(nounA.Count)];
-				txtOutput.Text += "Don't forget to " + verb + " " + noun+"\n";
-			}
+			if (rbtThisMany.IsChecked == true)//WTF do you mean by null? it's checked or not checked!
+				for (long i = 0; i < Convert.ToInt64(txtNumbers.Text); i++)
+					sb.Append(currentTemplate.GetRandom()).Append("\n");
+			else
+				foreach (var s in currentTemplate)
+					sb.Append(s).Append("\n");
 
+			txtOutput.Text = sb.ToString();
 			Clipboard.SetText(txtOutput.Text);
+		}
+
+		private void btnTemplateFromClipboard_Click(object sender, RoutedEventArgs e)
+		{
+			try
+			{
+				currentTemplate = new GeneratorTemplate(zusp.Split(Clipboard.GetText(), "\n").Select((s) => s.Trim()).ToList());
+			}
+			catch (Exception ex)
+			{
+				//TODO: bake some toast!
+			}
 		}
 	}
 }

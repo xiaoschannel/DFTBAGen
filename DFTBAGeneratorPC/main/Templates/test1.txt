@@ -1,0 +1,35 @@
+﻿Template Name: test - DFTBA 1
+Template Description: Generates in form of "Don't forget to b-verb a-adverb-ly". 
+[Word]
+Type: EXACT
+Exact Text: Don't
+Check Starts With: No
+Check Ends With: No
+Check REGEX: No
+[Word]
+Type: EXACT
+Exact Text: forget
+Check Starts With: No
+Check Ends With: No
+Check REGEX: No
+[Word]
+Type: EXACT
+Exact Text: to
+Check Starts With: No
+Check Ends With: No
+Check REGEX: No
+[Word]
+Type: DESCRIBED_POS
+POS Type: verb
+Check Starts With: Yes
+Starts With String: b
+Check Ends With: No
+Check REGEX: No
+[Word]
+Type: DESCRIBED_POS
+POS Type: adverb
+Check Starts With: Yes
+Starts With String: a
+Check Ends With: Yes
+Ends With String: ly
+Check REGEX: No

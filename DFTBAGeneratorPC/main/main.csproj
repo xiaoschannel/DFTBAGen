@@ -91,6 +91,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="data\GeneratorTemplate.cs" />
+    <Compile Include="data\TemplateItem.cs" />
+    <Compile Include="data\WordLists.cs" />
     <Compile Include="SimpleGeneratorWindow.xaml.cs">
       <DependentUpon>SimpleGeneratorWindow.xaml</DependentUpon>
     </Compile>
@@ -137,16 +140,25 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="words\adjective.txt">
+    <Content Include="Templates\test1.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="words\adverb.txt">
+    <Content Include="Templates\test2.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="words\noun.txt">
+    <Content Include="words\default_POS\adjective.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="words\verb.txt">
+    <Content Include="words\default_POS\adverb.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="words\default_POS\noun.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="words\default_POS\booktitle.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="words\default_POS\verb.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

@@ -20,5 +20,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-The file mobyposi.i is taken from the MOBY project, which is in public domain. See MOBY.txt.
-The file english-words.35 belongs to SCOWL, redistributed under its license: Copyright_SCOWL.txt.
+ADDITIONALLY, files listed below are works adapted from others which may be copyrighted, thus they are not redistributed under this license. If you redistribute this software with any of the files listed below included, you must follow their respective licenses:
+--The file mobyposi.i is taken from the MOBY project, which is in public domain. See MOBY.txt.
+--The file english-words.35 belongs to SCOWL, it is to be redistributed under its own license: Copyright_SCOWL.txt.
+--The file bookname.txt is modified from Wikipedia, retrieved 2015 September the 6th, from: https://en.wikipedia.org/wiki/List_of_best-selling_books, the file is under CC3.0by-sa (Creative Commons Attribution-ShareAlike 3.0 license), See Copyright_Wikipedia.txt or visit: http://creativecommons.org/licenses/by-sa/3.0/

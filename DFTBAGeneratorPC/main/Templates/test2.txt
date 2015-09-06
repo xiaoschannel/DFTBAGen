@@ -1,0 +1,26 @@
+﻿Template Name: test - book title in my pants
+Template Description: An attempt to generate "in my pants" joke randomly. This is to test the ability to expand POS lists.
+[Word]
+Type: DESCRIBED_POS
+POS Type: booktitle
+Check Starts With: No
+Check Ends With: No
+Check REGEX: No
+[Word]
+Type: EXACT
+Exact Text: In
+Check Starts With: No
+Check Ends With: No
+Check REGEX: No
+[Word]
+Type: EXACT
+Exact Text: My
+Check Starts With: No
+Check Ends With: No
+Check REGEX: No
+[Word]
+Type: EXACT
+Exact Text: Pants
+Check Starts With: No
+Check Ends With: No
+Check REGEX: No
